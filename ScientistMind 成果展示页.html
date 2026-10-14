@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ScientistMind Agent｜科学家思维驱动的科研规划辅助系统</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+<!-- 顶部导航 -->
+<nav class="sticky top-0 z-20 bg-white border-b border-slate-200 overflow-x-auto">
+  <div class="max-w-3xl mx-auto flex gap-4 px-4 py-3 text-sm whitespace-nowrap">
+    <a href="#intro" class="text-slate-600 hover:text-indigo-700">简介</a>
+    <a href="#assets" class="text-slate-600 hover:text-indigo-700">知识资产</a>
+    <a href="#flow" class="text-slate-600 hover:text-indigo-700">系统方法</a>
+    <a href="#case" class="text-slate-600 hover:text-indigo-700">应用示例</a>
+    <a href="#eval" class="text-slate-600 hover:text-indigo-700">内部评测</a>
+    <a href="#validity" class="text-slate-600 hover:text-indigo-700">有效性说明</a>
+    <a href="#conclusion" class="text-slate-600 hover:text-indigo-700">结论</a>
+  </div>
+</nav>
+
+<!-- 封面 -->
+<header class="bg-gradient-to-br from-indigo-900 to-slate-800 text-white">
+  <div class="max-w-3xl mx-auto px-5 py-12">
+    <p class="text-xs tracking-widest text-indigo-200">ZJUI学院暑期科研成果展</p>
+    <h1 class="mt-3 text-3xl font-bold leading-tight">ScientistMind Agent</h1>
+    <p class="mt-2 text-lg text-indigo-100">基于科学家思维模式与检索增强的科研规划辅助系统</p>
+    <p class="mt-1 text-sm text-indigo-200">A Research Planning Assistant with Scientist Thinking Patterns and Retrieval Augmentation</p>
+    <div class="mt-6 text-xs text-indigo-200 space-y-1">
+      <p>团队成员：［待补充］</p>
+      <p>指导教师及学院：［待补充］</p>
+      <p>暑研年份：［待补充］</p>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-5">
+
+<!-- 简介 -->
+<section id="intro" class="py-10">
+  <h2 class="text-xl font-bold text-indigo-900">项目简介</h2>
+  <p class="mt-4 leading7 leading-relaxed">科研规划需要把宽泛目标转化为可检验的机制、对照实验和评价指标。仅提出“查阅文献”或“优化参数”，仍难以支持研究者比较竞争解释。</p>
+  <p class="mt-3 leading-relaxed">ScientistMind Agent 面向开放式科研问题，将科学家研究案例整理为可复用的思维模板，结合<strong>规则路由、本地检索和 Persona 配置</strong>，组织可检验的假设、实验、指标与风险。</p>
+  <p class="mt-3 leading-relaxed">系统以本地规则与模板为主，支持可选 CPU 向量检索及人工审核后的资料扩展，并预留了未来接入大语言模型的提示接口。系统的实际用途是辅助组织科研讨论，输出的科学假设仍需专业文献与实验支持。</p>
+  <div class="mt-5 rounded-lg bg-white border border-slate-200 p-4 text-sm text-slate-600 leading-relaxed">
+    <p class="font-semibold text-slate-700">Project Introduction</p>
+    <p class="mt-1">ScientistMind Agent structures scientist case studies into reusable thinking patterns. It combines rule-based routing, local retrieval and Persona configurations to organize testable hypotheses, experiments, metrics and risks. The current prototype uses local rules and templates, with a prepared prompt interface for future LLM integration.</p>
+  </div>
+</section>
+
+<!-- 知识资产 -->
+<section id="assets" class="py-10 border-t border-slate-200">
+  <h2 class="text-xl font-bold text-indigo-900">知识资产</h2>
+  <div class="mt-5 grid grid-cols-2 sm:grid-cols-3 gap-3">
+    <div class="rounded-lg bg-white border border-slate-200 p-4"><p class="text-3xl font-bold text-indigo-700">12</p><p class="text-sm text-slate-600">个深度案例</p></div>
+    <div class="rounded-lg bg-white border border-slate-200 p-4"><p class="text-3xl font-bold text-indigo-700">15</p><p class="text-sm text-slate-600">种思维模式</p></div>
+    <div class="rounded-lg bg-white border border-slate-200 p-4"><p class="text-3xl font-bold text-indigo-700">60</p><p class="text-sm text-slate-600">位物理诺奖得主阅读索引</p></div>
+    <div class="rounded-lg bg-white border border-slate-200 p-4"><p class="text-3xl font-bold text-indigo-700">87</p><p class="text-sm text-slate-600">篇本地检索文档</p></div>
+    <div class="rounded-lg bg-white border border-slate-200 p-4"><p class="text-3xl font-bold text-indigo-700">6</p><p class="text-sm text-slate-600">种 Persona</p></div>
+  </div>
+  <ul class="mt-5 space-y-2 text-sm leading-relaxed text-slate-700">
+    <li><strong>深度案例</strong>记录领域、关键发现、转折点、假设、验证方式和可迁移任务。</li>
+    <li><strong>思维模板</strong>描述适用场景、分析步骤、输出结构与失败模式。</li>
+    <li><strong>阅读索引</strong>主要提供资料入口，其信息深度不同于完整案例。</li>
+    <li>三类资产共同构成 87 篇本地检索文档。来源审计有助于核对叙述，但历史案例中的方法归纳仍需在新任务中验证。</li>
+  </ul>
+</section>
+
+<!-- 系统方法 -->
+<section id="flow" class="py-10 border-t border-slate-200">
+  <h2 class="text-xl font-bold text-indigo-900">系统方法</h2>
+
+  <h3 class="mt-5 font-semibold">工作流程</h3>
+  <ol class="mt-3 space-y-2">
+    <li class="flex gap-3 rounded-lg bg-white border border-slate-200 p-3"><span class="shrink-0 w-7 h-7 rounded-full bg-indigo-700 text-white text-sm flex items-center justify-center">1</span><div><p class="font-medium">问题输入</p><p class="text-sm text-slate-600">明确目标与约束</p></div></li>
+    <li class="flex gap-3 rounded-lg bg-white border border-slate-200 p-3"><span class="shrink-0 w-7 h-7 rounded-full bg-indigo-700 text-white text-sm flex items-center justify-center">2</span><div><p class="font-medium">规则路由</p><p class="text-sm text-slate-600">推荐方法与 Persona</p></div></li>
+    <li class="flex gap-3 rounded-lg bg-white border border-slate-200 p-3"><span class="shrink-0 w-7 h-7 rounded-full bg-indigo-700 text-white text-sm flex items-center justify-center">3</span><div><p class="font-medium">证据检索</p><p class="text-sm text-slate-600">BM25 及可选向量检索</p></div></li>
+    <li class="flex gap-3 rounded-lg bg-white border border-slate-200 p-3"><span class="shrink-0 w-7 h-7 rounded-full bg-indigo-700 text-white text-sm flex items-center justify-center">4</span><div><p class="font-medium">基础规划</p><p class="text-sm text-slate-600">假设与实验设计</p></div></li>
+    <li class="flex gap-3 rounded-lg bg-white border border-slate-200 p-3"><span class="shrink-0 w-7 h-7 rounded-full bg-indigo-700 text-white text-sm flex items-center justify-center">5</span><div><p class="font-medium">Persona 补充</p><p class="text-sm text-slate-600">追问与额外对照</p></div></li>
+  </ol>
+
+  <h3 class="mt-8 font-semibold">方法模板与 Persona</h3>
+  <p class="mt-2 text-sm leading-relaxed">方法模板决定怎样分析问题，Persona 增加科学家式的审查视角与关注偏好。</p>
+  <div class="mt-3 grid sm:grid-cols-2 gap-3 text-sm">
+    <div class="rounded-lg bg-white border border-slate-200 p-3"><p class="font-medium text-indigo-800">材料模板</p><p class="text-slate-600">强调结构与性能机制</p></div>
+    <div class="rounded-lg bg-white border border-slate-200 p-3"><p class="font-medium text-indigo-800">异常追踪模板</p><p class="text-slate-600">关注重复失败</p></div>
+    <div class="rounded-lg bg-white border border-slate-200 p-3"><p class="font-medium text-amber-700">Goodenough 配置</p><p class="text-slate-600">增加结构表征</p></div>
+    <div class="rounded-lg bg-white border border-slate-200 p-3"><p class="font-medium text-amber-700">Feynman 配置</p><p class="text-slate-600">追问隐藏假设</p></div>
+    <div class="rounded-lg bg-white border border-slate-200 p-3"><p class="font-medium text-amber-700">Curie 配置</p><p class="text-slate-600">强调背景与污染控制</p></div>
+  </div>
+  <p class="mt-3 text-xs text-slate-500">人物名称代表工程化配置，不等于真实科学家对当前问题的意见。</p>
+
+  <h3 class="mt-8 font-semibold">路由与本地检索</h3>
+  <p class="mt-2 text-sm leading-relaxed">路由器通过关键词与规则识别领域和研究性质，推荐模板及 Persona，当前覆盖<strong>材料、催化、生物工程、测量物理、理论物理与通用规划</strong>。规则易于追踪，但对措辞和跨领域输入较敏感，复杂任务仍需人工调整。</p>
+  <p class="mt-2 text-sm leading-relaxed">检索模块采用 BM25 风格评分，并结合标题、文档类型和查询扩展。可选 CPU 向量索引用语义相似性补充候选，索引缺失时回退到 BM25。当前混合结果以 BM25 排名优先，属于 BM25 优先的候选合并，尚不能声称向量检索改善了最终排名。</p>
+
+  <h3 class="mt-8 font-semibold">规划生成与资料扩展</h3>
+  <p class="mt-2 text-sm leading-relaxed">Scientist Agent 按领域模板组织<strong>问题分解、机制假设、实验对照、主次指标、风险和时间线</strong>，Persona 随后增加追问与额外控制条件。当前生成主要依赖本地规则和配置。</p>
+  <p class="mt-2 text-sm leading-relaxed">Streamlit 界面展示路由依据、检索条目、研究方案及 Persona 对比，使用户能够回看方案形成过程。系统还支持搜索学术元数据，候选经人工接受后进入用户索引；元数据中的题名、摘要和链接不等于已核验的论文全文。</p>
+</section>
+
+<!-- 应用示例 -->
+<section id="case" class="py-10 border-t border-slate-200">
+  <h2 class="text-xl font-bold text-indigo-900">应用示例：钙钛矿太阳能电池寿命</h2>
+  <div class="mt-4 rounded-lg bg-indigo-50 border border-indigo-200 p-4">
+    <p class="text-xs text-indigo-600">输入问题</p>
+    <p class="mt-1 font-medium">如何提高钙钛矿太阳能电池寿命</p>
+  </div>
+
+  <div class="mt-4 space-y-3">
+    <div class="rounded-lg bg-white border border-slate-200 p-4">
+      <p class="text-xs font-semibold text-slate-500">路由结果</p>
+      <p class="mt-1 text-sm">推荐模板：<strong>材料结构—性能—机制</strong> 与 <strong>异常追踪</strong></p>
+      <p class="text-sm">推荐 Persona：<strong>Goodenough 配置</strong></p>
+    </div>
+    <div class="rounded-lg bg-white border border-slate-200 p-4">
+      <p class="text-xs font-semibold text-slate-500">待验证方向</p>
+      <ul class="mt-2 grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm">
+        <li class="rounded bg-slate-100 px-3 py-2 text-center">界面钝化</li>
+        <li class="rounded bg-slate-100 px-3 py-2 text-center">组分工程</li>
+        <li class="rounded bg-slate-100 px-3 py-2 text-center">封装或传输层改性</li>
+      </ul>
+    </div>
+    <div class="rounded-lg bg-white border border-slate-200 p-4">
+      <p class="text-xs font-semibold text-slate-500">实验与指标</p>
+      <ul class="mt-2 text-sm space-y-1 list-disc pl-5">
+        <li>加速老化</li>
+        <li>结构与光学表征</li>
+        <li>统一基线器件比较</li>
+        <li>指标：T80 寿命、效率等</li>
+      </ul>
+    </div>
+    <div class="rounded-lg bg-white border border-slate-200 p-4">
+      <p class="text-xs font-semibold text-slate-500">Persona 补充</p>
+      <p class="mt-1 text-sm">追问结构如何影响性能，并增加测试前后的结构表征。</p>
+    </div>
+  </div>
+
+  <div class="mt-4 rounded-lg bg-amber-50 border border-amber-200 p-4 text-sm leading-relaxed text-amber-900">
+    <p class="font-semibold">说明</p>
+    <p class="mt-1">该示例属于规划输出，展示的是可供讨论的假设与实验框架，而非实验结果。建议仍需细化变量、样本量、对照和统计方法；初始效率变化与寿命变化应分开分析，加速老化结果也不能直接替代实际使用寿命。本项目未开展器件制备与老化实验，输出中的试验周期属于模板建议。</p>
+  </div>
+</section>
+
+<!-- 内部评测 -->
+<section id="eval" class="py-10 border-t border-slate-200">
+  <h2 class="text-xl font-bold text-indigo-900">内部评测结果</h2>
+  <p class="mt-3 text-sm leading-relaxed">四系统比较包含 10 个开放问题：固定通用回答 Baseline（来自预设文本，并非独立调用的 GPT 模型）、检索分析包 RAG、Scientist Agent 和 Persona Agent。评分维度为新颖性、合理性、可测试性和洞察性，程序依据关键词及字段覆盖计算 1 至 5 分。</p>
+
+  <h3 class="mt-6 font-semibold">四系统内部综合分</h3>
+  <div class="mt-3 space-y-3" id="bars"></div>
+
+  <h3 class="mt-8 font-semibold">表1 四系统内部启发式评分（10 个问题）</h3>
+  <div class="mt-3 overflow-x-auto rounded-lg border border-slate-200 bg-white">
+    <table class="w-full text-sm text-center">
+      <thead class="bg-slate-100 text-slate-600">
+        <tr><th class="p-2 text-left">系统</th><th class="p-2">新颖性</th><th class="p-2">合理性</th><th class="p-2">可测试性</th><th class="p-2">洞察性</th><th class="p-2">综合</th></tr>
+      </thead>
+      <tbody class="divide-y divide-slate-100">
+        <tr><td class="p-2 text-left">Baseline</td><td>2.40</td><td>3.00</td><td>3.40</td><td>2.55</td><td class="font-semibold">2.84</td></tr>
+        <tr><td class="p-2 text-left">RAG</td><td>3.08</td><td>3.67</td><td>3.80</td><td>2.98</td><td class="font-semibold">3.38</td></tr>
+        <tr><td class="p-2 text-left">Scientist Agent</td><td>3.65</td><td>4.17</td><td>4.50</td><td>3.83</td><td class="font-semibold">4.04</td></tr>
+        <tr><td class="p-2 text-left">Persona Agent</td><td>3.95</td><td>4.40</td><td>4.70</td><td>4.33</td><td class="font-semibold">4.34</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="mt-8 font-semibold">功能与鲁棒性检查（0 至 1 分独立规则）</h3>
+  <div class="mt-3 grid grid-cols-2 gap-3">
+    <div class="rounded-lg bg-white border border-slate-200 p-4"><p class="text-sm text-slate-500">综合功能检查</p><p class="text-2xl font-bold text-emerald-700">16/16 通过</p><p class="text-sm text-slate-600">均分 0.943</p></div>
+    <div class="rounded-lg bg-white border border-slate-200 p-4"><p class="text-sm text-slate-500">鲁棒性检查</p><p class="text-2xl font-bold text-emerald-700">12/12 通过</p><p class="text-sm text-slate-600">均分 0.986</p></div>
+  </div>
+  <p class="mt-2 text-xs text-slate-500">两者不能与四系统分数直接比较。通过表示达到内部阈值，综合评测仍存在领域命中和检索上下文薄弱项，鲁棒性样本也有领域识别不一致。</p>
+
+  <h3 class="mt-8 font-semibold">分层评测</h3>
+  <div class="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+    <div class="rounded-lg bg-white border border-slate-200 p-3"><p class="text-xs text-slate-500">历史回放（5 例）</p><p class="text-xl font-bold">5.00</p></div>
+    <div class="rounded-lg bg-white border border-slate-200 p-3"><p class="text-xs text-slate-500">假设生成（4 例）</p><p class="text-xl font-bold">4.09</p></div>
+    <div class="rounded-lg bg-white border border-slate-200 p-3"><p class="text-xs text-slate-500">研究规划（3 例）</p><p class="text-xl font-bold">4.34</p></div>
+    <div class="rounded-lg bg-indigo-50 border border-indigo-200 p-3"><p class="text-xs text-indigo-600">宏平均</p><p class="text-xl font-bold text-indigo-800">4.48</p></div>
+  </div>
+</section>
+
+<!-- 有效性说明 -->
+<section id="validity" class="py-10 border-t border-slate-200">
+  <h2 class="text-xl font-bold text-indigo-900">评测有效性说明</h2>
+  <div class="mt-4 space-y-3 text-sm leading-relaxed">
+    <div class="rounded-lg bg-white border-l-4 border-rose-400 p-4">
+      <p class="font-semibold">评分偏差</p>
+      <p class="mt-1 text-slate-700">四系统评分为不同方法预设 0、0.4、0.9 和 1.1 的加分，并在多个维度中使用。即使输出内容相同，方法名称也可能改变分数。因此表1的逐级升高混合了结构覆盖与评分先验，关键词命中也不保证事实与机制成立。</p>
+    </div>
+    <div class="rounded-lg bg-white border-l-4 border-rose-400 p-4">
+      <p class="font-semibold">答案泄漏</p>
+      <p class="mt-1 text-slate-700">历史回放直接读取评测集中的参考假设、实验与关键词，再对相同内容评分，其满分不构成独立发现能力证据。假设生成循环使用基础假设并追加编号，10 条输出不等于 10 个独立机制。</p>
+    </div>
+    <div class="rounded-lg bg-white border-l-4 border-slate-400 p-4">
+      <p class="font-semibold">其他局限</p>
+      <p class="mt-1 text-slate-700">知识库规模较小；人物案例不能替代专业研究证据；路由依赖手工规则；Persona 主要补充文字，其实际收益未经验证。</p>
+    </div>
+  </div>
+  <p class="mt-4 text-sm text-slate-600">这些结果更适合检查工程链路，不能证明系统提升了真实科研能力或具备独立发现能力。</p>
+</section>
+
+<!-- 结论 -->
+<section id="conclusion" class="py-10 border-t border-slate-200">
+  <h2 class="text-xl font-bold text-indigo-900">结论</h2>
+  <p class="mt-4 leading-relaxed">ScientistMind Agent 的主要成果是将案例、方法选择、证据检索与规划输出组织为可维护的原型。结构化报告帮助使用者发现缺少的对照、读数和风险说明，界面与来源记录提供了审查入口。</p>
+  <p class="mt-3 leading-relaxed">项目已形成可解释的科研规划流程，内部数据能够复现，结论限定为原型实现及输出结构可检查；科研假设质量与实际效益尚未经独立验证。</p>
+  <a href="https://github.com/binary-producer/scientistmind" class="mt-6 block rounded-lg bg-slate-900 text-white text-center py-3 font-medium hover:bg-slate-700">查看 GitHub 项目代码</a>
+</section>
+
+<!-- 参考文献 -->
+<section class="py-8 border-t border-slate-200 text-xs text-slate-500 leading-relaxed">
+  <p class="font-semibold text-slate-600">参考文献</p>
+  <p class="mt-2">[1] Lewis P, Perez E, Piktus A, et al. Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. NeurIPS, 2020.</p>
+  <p>[2] Manning C D, Raghavan P, Schütze H. Introduction to Information Retrieval. Cambridge University Press, 2008.</p>
+  <p>[3] Yao S, Zhao J, Yu D, et al. ReAct: Synergizing Reasoning and Acting in Language Models. ICLR, 2023.</p>
+  <p>[4] ScientistMind Agent 项目代码与数据. https://github.com/binary-producer/scientistmind</p>
+  <p>[5] ScientistMind Agent 内部评测记录. phase6_evaluation 中的四系统、综合功能、分层及鲁棒性评测结果文件。</p>
+  <p class="mt-4">资料来源：ScientistMind 项目代码与内部评测记录</p>
+</section>
+
+</main>
+
+<script>
+  const data=[["Baseline",2.84,"bg-slate-400"],["RAG",3.38,"bg-sky-500"],["Scientist Agent",4.04,"bg-indigo-500"],["Persona Agent",4.34,"bg-indigo-800"]];
+  const box=document.getElementById("bars");
+  data.forEach(([n,v,c])=>{
+    box.insertAdjacentHTML("beforeend",`<div><div class="flex justify-between text-sm mb-1"><span>${n}</span><span class="font-semibold">${v.toFixed(2)}</span></div><div class="h-3 rounded-full bg-slate-200"><div class="h-3 rounded-full ${c}" style="width:${v/5*100}%"></div></div></div>`);
+  });
+  box.insertAdjacentHTML("beforeend",`<p class="text-xs text-slate-500">满分 5 分。评分含预设方法加分，不能据此证明真实科研能力提升。</p>`);
+</script>
+<script>window.parent.postMessage({ action: "ready" }, "*"); 
+ 
+window.console = new Proxy(console, {
+  get(target, prop) {
+    if (['log', 'warn', 'error'].includes(prop)) {
+      return new Proxy(target[prop], {
+        apply(fn, thisArg, args) {
+          fn.apply(thisArg, args);
+          window.parent.postMessage({ action: 'console', 
+            type: prop, 
+            args: args.map((arg) => {
+              try {
+                return JSON.stringify(arg).replace(/^["']|["']$/g, '');
+              } catch (e) {
+                return arg;
+              }
+            }) 
+          }, '*');
+        }
+      });
+    }
+    return target[prop];
+  }
+});
+</script></body>
+</html>
